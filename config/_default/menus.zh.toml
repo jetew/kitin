@@ -1,0 +1,39 @@
+[[main]]
+  identifier = "archive"
+  name = "📚归档"
+  url = "archive"
+  weight = 1
+
+[[main]]
+  identifier = "categories"
+  name = "📂分类"
+  url = "categories"
+  weight = 2
+
+[[main]]
+  identifier = "tags"
+  name = "🏷️标签"
+  url = "tags"
+  weight = 3
+
+# [[main]]
+  # parent = "categories"
+  # name = "分享"
+  # url = "categories/分享"
+
+# [[main]]
+  # parent = "categories"
+  # name = "记录"
+  # url = "categories/记录"
+
+# [[main]]
+  # identifier = "gallery"
+  # name = "💼项目"
+  # url = "gallery"
+  # weight = 4
+    
+[[main]]
+  identifier = "about"
+  name = "🙋‍♂️关于"
+  url = "about"
+  weight = 4

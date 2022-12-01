@@ -1,0 +1,24 @@
+<div id="vcomments"></div>
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+<script>
+  Waline.init({
+    el: '#vcomments' ,
+    locale: {
+    nick: '昵称',
+    mail: '邮箱',
+    link: '网址',
+    anonymous: '匿名',
+    placeholder: '请注意评论礼仪，发布攻击性、无意义内容将会视为垃圾评论进行删除处理。',
+    },
+    serverURL: '{{ .Site.Params.waline.ServerURL }}',
+    emoji: [
+      '//unpkg.com/@waline/emojis@1.1.0/alus',
+      '//unpkg.com/@waline/emojis@1.1.0/tieba'
+    ],
+    lang: 'zh-CN',
+    meta: {{ .Site.Params.waline.Meta }},
+    pageSize: '{{ .Site.Params.waline.PageSize }}',
+    highlighter: {{ .Site.Params.waline.Highlighter }}
+  });
+</script>

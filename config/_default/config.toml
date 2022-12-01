@@ -1,0 +1,60 @@
+baseURL = "https://kitin.cn"
+title = "kitin's"
+theme = "zzo"
+
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = true
+hasCJKLanguage = true
+
+summaryLength = 100
+buildFuture = true
+
+copyright = "&copy; {year}, [Kitin](/) All Rights Reserved"
+timeout = 10000
+enableEmoji = true
+paginate = 10
+rssLimit = 100
+
+enableGitInfo = false
+googleAnalytics = ""
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = true
+      unsafe = true
+      xHTML = true
+  [markup.highlight]
+    codeFences = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  [markup.tableOfContents]
+    endLevel = 6
+    ordered = false
+    startLevel = 2
+
+[outputs]
+  page = ["HTML"]
+  home = ["HTML", "RSS", "SearchIndex"]
+  section = ["HTML", "RSS", "SearchIndex"]
+  taxonomyTerm = ["HTML"]
+  taxonomy = ["HTML"]
+
+[outputFormats]
+  [outputFormats.SearchIndex]
+    mediaType = "application/json"
+    baseName = "index"
+    isPlainText = true
+    notAlternative = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[frontmatter]
+  lastmod = [":git", "lastmod", ":fileModTime", ":default"]
+
+[permalinks]
+    posts = "/p/:slug/"
+    page = "/:slug/"
