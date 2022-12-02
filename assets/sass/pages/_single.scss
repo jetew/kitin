@@ -6,7 +6,7 @@
 
   &__title {
     font-size: 2.0rem;
-    font-weight: 900;
+    font-weight: 700;
     font-family: $title-font;
     line-height: 3rem;
     overflow-wrap: break-word;
@@ -116,7 +116,7 @@
     h2 {
       padding: 0;
       color: inherit;
-      font-weight: 900;
+      font-weight: 700;
       text-rendering: optimizeLegibility; 
 
       @include themify($themes) {
@@ -139,27 +139,27 @@
     }
 
     h2 {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       margin: 3.2rem 0 1.5rem 0;
     }
 
     h3 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       margin: 2.8rem 0 1.25rem 0;
     }
 
     h4 {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       margin: 2.4rem 0 1rem 0;
     }
 
     h5 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin: 2rem 0 0.8rem 0;
     }
 
     h6 {
-      font-size: 1rem;
+      font-size: 0.8rem;
       margin: 1.5rem 0 0.5rem 0;
     }
 
@@ -272,7 +272,7 @@
     }
 
     blockquote {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       line-height: 1.75;
       color: inherit;
       opacity: 0.8;
@@ -328,15 +328,15 @@
 
     &[data-dir="ltr"] {
       li {
-        margin-left: 1.5rem;
+        margin-left: 2rem;
       }
 
       blockquote {
-        margin: 0 1.75rem 1.75rem 0.5rem;
-        padding: 0 0 0 0.5rem;
+        margin: 0 1.75rem 1.75rem 1.5rem;
+        padding: 0 0 0 1.42188rem;
 
         @include themify($themes) {
-          border-left: 0.15rem solid themed("single-blockquote-border-color");
+          border-left: 0.32813rem solid themed("single-blockquote-border-color");
         }
       }
     }
