@@ -48,7 +48,7 @@
         {{ range .sections }}
           <div class="resume__section--title">
             {{ with .title }}
-              {{ . }}
+              <b>{{ . }}</b>
               <div class="grow"></div>
             {{ end }}
             {{ with .startDate }}
