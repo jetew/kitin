@@ -159,7 +159,7 @@ caddy reload --config /etc/caddy/Caddyfile
 若出现 `ERR_SSL_PROTOCOL_ERROR`，可重载 Caddy:
 
 ```bash
-systemctl reload caddy
+systemctl restart caddy
 ```
 
 ---
