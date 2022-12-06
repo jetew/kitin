@@ -1,10 +1,10 @@
 logoText = "Kitin's"
-logoType = "short" # long, short
-logo = false
+logoType = "long" # long, short
+logo = true
 description = "Kitin的个人博客"
 custom_css = []
 custom_js = []
-useFaviconGenerator = false # https://www.favicon-generator.org/
+useFaviconGenerator = true # https://www.favicon-generator.org/
 meta_image = ""
 themecolor = ""
 
