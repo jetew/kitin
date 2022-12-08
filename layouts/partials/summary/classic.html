@@ -19,8 +19,8 @@
       <header>
         <h5 class="title h5"><a href='{{ .Permalink }}'>{{- with .Params.pinned -}}{{ ($.Site.Params.pinIcon | safeHTML) | default "📌" }}&nbsp;{{- end -}}{{ .Title }}</a> </h5>
         <h6 class="subtitle caption">
-          <time title="{{ i18n "tooltip-written" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ ($.Site.Params.writtenTimeIcon | safeHTML) | default "📅" }}发布于：{{ .Date.Format (i18n "summary-dateformat") }} </time>
-          <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">·&nbsp;{{ ($.Site.Params.readingTimeIcon | safeHTML) | default "⏱" }}预计阅读：{{ .ReadingTime }}{{ i18n "reading-time" }} </span>
+          <time title="{{ i18n "tooltip-written" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ ($.Site.Params.writtenTimeIcon | safeHTML) | default "📅" }}发布于：{{ .Date.Format (i18n "summary-dateformat") }} </time>·
+          <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ ($.Site.Params.readingTimeIcon | safeHTML) | default "⏱" }}预计阅读：{{ .ReadingTime }}{{ i18n "reading-time" }} </span>
         </h6>
       </header>
       <div>

@@ -1,10 +1,10 @@
 {{ $params := .Params }}
 <div class="single__infos">
-  <time class="single__info" title="{{ i18n "tooltip-written" }}">{{ ($.Site.Params.writtenTimeIcon | safeHTML) | default "📅" }}发布于：{{ .Date.Format (i18n "single-dateformat") }} </time>
+  <time class="single__info" title="{{ i18n "tooltip-written" }}">{{ ($.Site.Params.writtenTimeIcon | safeHTML) | default "📅" }}发布于：{{ .Date.Format (i18n "single-dateformat") }} </time>&nbsp;·&nbsp;
   {{ if ne (.Date.Format (i18n "summary-dateformat")) (.Lastmod.Format (i18n "summary-dateformat")) }}
-  &nbsp;<time class="single__info" title="{{ i18n "tooltip-modified" }}"> {{ ($.Site.Params.modifiedTimeIcon | safeHTML) | default "🖊" }}更新于：{{ .Lastmod.Format (i18n "single-dateformat") }} </time>
+  <time class="single__info" title="{{ i18n "tooltip-modified" }}"> {{ ($.Site.Params.modifiedTimeIcon | safeHTML) | default "🖊" }}更新于：{{ .Lastmod.Format (i18n "single-dateformat") }} </time>&nbsp;·&nbsp;
   {{ end }}
-  &nbsp;<span class="single__info" title="{{ i18n "tooltip-reading-time" }}"> {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "⏱" }}预计阅读：{{ .ReadingTime }}{{ i18n "reading-time" }} </span>
+  <span class="single__info" title="{{ i18n "tooltip-reading-time" }}"> {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "⏱" }}预计阅读：{{ .ReadingTime }}{{ i18n "reading-time" }} </span>&nbsp;·
   <span class="single__info">
     {{ if (and .Site.Params.enableBusuanzi .Site.Params.busuanziPagePV) }}|{{ ($.Site.Params.pagePvIcon | safeHTML) | default "👀" }}<span id="busuanzi_value_page_pv">...</span>阅读量：{{ i18n "counter-page-pv" }}{{ end }}
   </span>
