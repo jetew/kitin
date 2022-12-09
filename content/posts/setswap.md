@@ -37,9 +37,9 @@ image: /images/setswap/0.png
 ```bash
 free -h
 # 输出
-               total        used        free      shared  buff/cache   available
-Mem:           3.6Gi       123Mi       3.3Gi       1.0Mi       182Mi       3.3Gi
-Swap:             0B          0B          0B
+        total   used    free    shared    buff/cache    available
+Mem:    3.6Gi   123Mi   3.3Gi   1.0Mi     182Mi         3.3Gi
+Swap:   0B      0B      0B
 ```
 
 通过以上命令可以看到当前内存及 Swap 分区使用状态，如果 Swap 分区和我这里一样显示 0B  0B  0B 则代表并没有开启 Swap 分区。
@@ -124,7 +124,7 @@ NAME      TYPE SIZE USED PRIO
 1. 编辑 **/etc/fstab** 文件添加这一行：
 
 ```bash
-vim /etc/fstab/
+vim /etc/fstab
 # 添加如下:
 /swapfile swap swap defaults 0 0
 ```
