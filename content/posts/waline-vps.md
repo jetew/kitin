@@ -80,7 +80,29 @@ Thanks for using MariaDB!
 
 ### 安装 Nodejs
 
-这里要注意，不要直接使用 `apt` 进行安装，因为软件包版本比较低，与 **npm** 版本不匹配，从而导致后面报错。所以我们从 <a href="https://nodejs.org/" target="_blank">Nodejs官网</a> 下载二进制包，通过创建软链接至系统用户应用程序目录来使用。
+这里要注意，不要直接使用 `apt install` 进行安装，因为软件包版本比较低，与 **npm** 版本不匹配，从而导致后面报错。所以我们可以通过包管理器，或者二进制文件安装。
+
+#### 包管理器安装
+
+输入以下命令进行安装：
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &&\
+apt-get install -y nodejs
+```
+
+安装完成后可通过 `node-v` 和 `npm -v` 检验安装
+
+卸载：
+
+```bash
+apt-get purge nodejs &&\
+rm -r /etc/apt/sources.list.d/nodesource.list
+```
+
+#### 二进制文件安装
+
+从 <a href="https://nodejs.org/" target="_blank">Nodejs官网</a> 下载二进制包，通过创建软链接至系统用户应用程序目录来使用。
 
 打开 Nodejs 官网，点击 Downloads 然后右键复制 Linux Binaries (x64) 的下载链接：
 
@@ -120,8 +142,10 @@ npm install @waline/vercel
 ```
 
 {{< notice warning "注意" >}}
-国内服务器请先将 **npm** 设置为淘宝镜像：
+国内服务器请先将 **npm** 设置为淘宝镜像！！！
 {{< /notice >}}
+
+#### 更换镜像
 
 1. 临时更换
 
@@ -159,7 +183,7 @@ node node_modules/@waline/vercel/vanilla.js
 
 ### 配置数据库
 
-到官方文档的 <a href="https://waline.js.org/guide/server/databases.html" target="_blank">多数据库服务支持</a> 下载我们对应数据库的数据文件，我这里用的MariaDB(MySQL)所以下载 <a href="https://github.com/walinejs/waline/blob/main/assets/waline.sql" target="_blank">waline.sql</a> 然后进行导入数据：
+到官方文档的 <a href="https://waline.js.org/guide/server/databases.html" target="_blank">多数据库服务支持</a> 下载我们对应数据库的数据文件，我这里用的 MariaDB(MySQL) 所以下载 <a href="https://github.com/walinejs/waline/blob/main/assets/waline.sql" target="_blank">waline.sql</a> 然后进行导入数据：
 
 > **注意**：将源代码直接复制然后自己进行编辑上传，不要直接使用 `wget` 进行下载
 
@@ -202,6 +226,7 @@ vim waline.service
 Description=Waline
 
 [Service]
+Type=simple
 ExecStart=/usr/bin/node /usr/local/lib/node_modules/@waline/vercel/vanilla.js
 Restart=always
 User=root
@@ -257,11 +282,11 @@ systemctl enable waline # 添加开机自启动
 
 ```caddyfile
 domain.com {
-    root * /var/www/domain.com
+    root * /var/www/waline
     encode gzip
     reverse_proxy 127.0.0.1:8360
     file_server
-    tls user@mail.com
+    tls user@email.com
 }
 ```
 
@@ -290,12 +315,18 @@ location / {
 
 以上就是我通过 Caddy+MariaDB 独立部署 Waline 的过程，希望能给大家带来帮助。后期如果需要设置邮件通知等功能可以在 waline.service 文件中的 **[Service]** 项下直接添加 Environment= 然后根据官方给出的环境变量进行设置即可。
 
-## 参考资料
+若 Waline 后台发现有更新提示，可通过 `npm` 对 Waline 进行更新：
+
+```bash
+npm update @waline/vercel
+```
+
+### 参考资料
 
 1. <a href="https://waline.js.org" target="_blank">Waline 官方文档</a>
    
-2. <a href="https://caddyserver.com/docs/" target="_blank">Caddy 官方文档</a>
+2. <a href="https://github.com/nodesource/distributions/blob/master/README.md" target="_blank">NodeSource - Node.js 官方二进制发行版</a>
    
-3. <a href="https://github.com/nodejs/help/wiki/Installation" target="_blank">Nodejs 二进制安装说明</a>
+3. <a href="https://github.com/nodejs/help/wiki/Installation" target="_blank">通过二进制文件安装 Node.js</a>
 
 4. <a href="https://www.ruanyifeng.com/blog/2016/03/node-systemd-tutorial.html" target="_blank">Node 应用的 Systemd 启动</a>
