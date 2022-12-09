@@ -38,7 +38,7 @@ passwd
 
 ```bash
 apt update && apt full-upgrade -y && apt autoremove -y && apt autoclean
-apt install ufw git wget curl screen -y
+apt install wget curl ufw screen -y
 ```
 
 ---
@@ -154,8 +154,6 @@ systemctl restart sshd
 
 ### 开启加速服务
 
-操作方法：先安装内核，重启 VPS 让内核生效，再启动对应的加速即可。数字 1 的 BBR/BBR 魔改内核对应数字 4、5、6 的 BBR 加速、BBR 魔改加速和暴力 BBR 魔改版加速。数字 2 的 BBRplus 内核对应数字 7 的 BBRplus 加速。数字 3 的锐速加速内核对应数字 8 的锐速加速。
-
 复制下面命令，粘贴回车：
 
 ```bash
@@ -164,13 +162,20 @@ chmod +x tcp.sh
 ./tcp.sh
 ```
 
+面板如下：
+
+{{< img src="/images/setvps/1.png" caption="◎ 操作面板" position="center" width="700px" >}}
+
+操作方法：先安装内核，重启 VPS 让内核生效，再启动对应的加速即可。数字 1 的 BBR/BBR 魔改内核对应数字 4、5、6 的 BBR 加速、BBR 魔改加速和暴力 BBR 魔改版加速。数字 2 的 BBRplus 内核对应数字 7 的 BBRplus 加速。数字 3 的锐速加速内核对应数字 8 的锐速加速。
+
+
 先安装内核，等待提示重启后输入 `y` 进行重启：
 
-{{< img src="/images/setvps/1.jpg" caption="◎ 重启提示" position="center" width="700px" >}}
+{{< img src="/images/setvps/2.png" caption="◎ 重启提示" position="center" width="700px" >}}
 
 如果安装内核过程中，出现以下情况，选择否即可：
 
-{{< img src="/images/setvps/2.jpg" caption="◎ 特殊情况" position="center" width="700px" >}}
+{{< img src="/images/setvps/3.png" caption="◎ 特殊情况" position="center" width="700px" >}}
 
 重启完成后，输入 `./tcp.sh` 进入加速面板，选择对应内核的加速并输入对应数字开启加速。看到提示加速成功后，再次输入 `./tcp.sh` 检查是否成功开启
 
