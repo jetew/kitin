@@ -153,7 +153,7 @@ commento = false
 # more info please open https://waline.js.org
 [waline]
   enable = true
-  ServerURL = 'https://waline.kitin.cn'
+  ServerURL = 'https://wl.kitin.cn'
   Meta = ['nick', 'mail', 'link']
   PageSize = '10'
   HighLighter = true
