@@ -124,7 +124,7 @@ source /etc/profile
 更新完成后需要对旧版本的动态库进行替换，首先查找一下文件：
 
 ```bash
-find /name "libstdc++.so"
+find / -name "libstdc++.so"
 
 # 输出
 /usr/lib64/libstdc++.so.6
