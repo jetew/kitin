@@ -8,6 +8,7 @@ enableTocContent: true
 hidden: false
 pinned: false
 tags:
+- linux
 - vps
 categories:
 - 学习
