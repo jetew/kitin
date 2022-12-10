@@ -30,7 +30,7 @@ image: /images/make-gcc/0.png
 
 ```bash
 yum update
-yum install -y gcc gcc-g++ m4.x86_64 bzip2 screen
+yum install -y gcc gcc-c++ m4.x86_64 bzip2 screen
 ```
 
 2. 下载 gcc 源码
