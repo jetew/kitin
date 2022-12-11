@@ -109,6 +109,22 @@ OK 打开浏览器输入 IP 地址进行访问，还是熟悉的默认页面：
 
 {{< img src="/images/centos-mysql-error/5.png" caption="◎ 安装完成" position="center" width="700px" >}}
 
+### 添加忽略（可选）
+
+为防止误操作或运行自动化脚本情况导致被覆盖，可以将 cmake 添加忽略，编辑 `/etc/yum.conf` 
+
+```bash
+vim /etc/yum.conf
+```
+
+在末尾添加上：
+
+```bash
+exclude=cmake*
+```
+
+另外需要注意运行自动化脚本前查看一下是否会对配置文件进行编辑，若存在则需要修改脚本。
+
 ---
 
 ## 总结
