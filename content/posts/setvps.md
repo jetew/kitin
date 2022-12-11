@@ -39,7 +39,7 @@ passwd
 
 ```bash
 apt update && apt full-upgrade -y && apt autoremove -y && apt autoclean
-apt install wget curl ufw screen -y
+apt install wget curl vim screen -y
 ```
 
 ---
@@ -50,13 +50,13 @@ apt install wget curl ufw screen -y
 vim /etc/ssh/sshd_config
 ```
 
-> 这里我使用vim编辑，拿不准可以直接下载到本地编辑
+> 这里我使用 vim 编辑，拿不准可以直接下载到本地编辑
 
-找到默认22端口，将光标移动到该位置，输入 `i ` 进行编辑；去掉前面的注释，并且添加一个端口：
+找到默认 22 端口，将光标移动到该位置，输入 `i ` 进行编辑；去掉前面的注释，并且添加一个端口：
 
 ```bash
 Port 22
-Port 1234 # 以1234端口为例
+Port 1234 # 以 1234 端口为例
 ```
 
 编辑完成后按下 `ESC` 然后输入 `:wq!` 保存退出，并重启 `sshd` 服务进程：
@@ -65,9 +65,10 @@ Port 1234 # 以1234端口为例
 systemctl restart sshd
 ```
 
-通过 `ufw` 开放新端口，并开启防火墙：
+设置完毕后需要开放新端口，并开启防火墙；如果 VPS 管理面板自带防火墙可以通过管理面板开放端口；没有的话，我一般用 `ufw`：
 
 ```bash
+apt install -y ufw
 ufw allow 1234
 ufw enable
 ```
@@ -116,7 +117,7 @@ Your public key has been saved in /root/.ssh/id_rsa.pub. # 公钥与私钥存储
 
 - 上传/配置公钥文件
 
-如果是使用命令行在VPS生成的秘钥文件，则将私钥文件下载并导入SSH软件即可。若是软件生成，则将 `id_rsa.pub` 文件上传至 `root/.ssh` 目录下，完成上述操作后执行如下命令：
+如果是使用命令行在 VPS 生成的秘钥文件，则将私钥文件下载并导入 SSH 软件即可。若是软件生成，则将 `id_rsa.pub` 文件上传至 `root/.ssh` 目录下，完成上述操作后执行如下命令：
 
 ```bash
 mv id_rsa.pub authorized_keys
