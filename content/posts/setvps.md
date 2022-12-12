@@ -39,7 +39,7 @@ passwd
 
 ```bash
 apt update && apt full-upgrade -y && apt autoremove -y && apt autoclean
-apt install wget curl vim screen -y
+apt install -y wget curl vim screen
 ```
 
 ---
