@@ -111,21 +111,17 @@ rm -r /etc/apt/sources.list.d/nodesource.list
 然后回到 SSH 软件，使用 `wget` 命令，下载到任意位置并进行解压然后删除压缩包；我这里以 **/usr/local/lib** 为例：
 
 ```bash
-cd /usr/local/lib # 进入目录
-mkdir nodejs && cd nodejs # 创建 nodejs 文件夹
+cd /usr/local # 进入目录
 wget https://nodejs.org/dist/v16.18.0/node-v16.18.0-linux-x64.tar.xz # 下载二进制包
 tar -xvf node-v16.18.0-linux-x64.tar.xz # 解压
-rm node-v16.18.0-linux-x64.tar.xz # 删除压缩包
-cd node-v16.18.0-linux-x64 # 进入解压缩目录
-mv * ../ # 将所有文件移动至上一目录
-rm -r node-v16.18.0-linux-x64 # 删除解压缩目录
+mv node-v16.18.0-linux-x64 node # 重命名文件夹
 ```
 
 完成上述操作后，需要为 Nodejs 和 Npm 进行软链接到 **/usr/bin** 目录下
 
 ```bash
-ln -s /usr/local/lib/nodejs/bin/node /usr/bin/node
-ln -s /usr/local/lib/nodejs/bin/npm /usr/bin/npm
+ln -s /usr/local/node/bin/node /usr/bin/node
+ln -s /usr/local/node/bin/npm /usr/bin/npm
 ```
 
 完成后可通过 `node -v` 和 `npm -v` 进行验证，返回版本号则表示成功。
@@ -137,8 +133,8 @@ ln -s /usr/local/lib/nodejs/bin/npm /usr/bin/npm
 按照官方给出的独立部署中直接运行的方案，进入你想要安装的位置，安装好模块后直接运行模块内的 vanilla.js 文件：
 
 ```bash
-cd /usr/local/lib
-npm install @waline/vercel
+cd /usr/local/node/lib
+npm install -g @waline/vercel
 ```
 
 {{< notice warning "注意" >}}
@@ -150,7 +146,7 @@ npm install @waline/vercel
 1. 临时更换
 
 ```bash
-npm --registry https://registry.npm.taobao.org install @waline/vercel
+npm --registry https://registry.npm.taobao.org install -g @waline/vercel
 ```
 
 2. 永久更换
@@ -227,27 +223,52 @@ Description=Waline
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/node /usr/local/lib/node_modules/@waline/vercel/vanilla.js
+ExecStart=[/path/to/node] [path/to/node_modules]/@waline/vercel/vanilla.js
 Restart=always
-User=root
-Group=root
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=production
 Environment=MYSQL_DB=数据库名
 Environment=MYSQL_USER=用户名
 Environment=MYSQL_PASSWORD=密码
-WorkingDirectory=/usr/local/lib/node_modules/@waline/vercel
+WorkingDirectory=[/path/to/node_modules]/@waline/vercel
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-如果你之前按照我的步骤来安装 **Node** 和 **Npm** 还有 **Waline** 那么直接将脚本复制然后修改参数即可，如果你的位置和我不一样，那么就需要将 **ExecStart** 项中的路径换成你自己的。用户和组一般都是root，如果不确定可以使用命令查一下：
+其中，占位符内容如下：
+
+{{< boxmd >}}
+- [/path/to/node]：node 可执行文件绝对路径
+- [path/to/node_modules]：通过 npm 安装模块位置
+{{< /boxmd >}}
+
+我的配置如下：
+
+```service
+[unit]
+Description=Waline
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /usr/local/node/lib/node_modules/@waline/vercel/vanilla.js
+Restart=always
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+Environment=MYSQL_DB=数据库名
+Environment=MYSQL_USER=用户名
+Environment=MYSQL_PASSWORD=密码
+WorkingDirectory=/usr/local/node/lib/node_modules//@waline/vercel
+
+[Install]
+WantedBy=multi-user.target
+```
+
+如果你之前按照我的步骤来安装 **Node** 和 **Waline** 那么直接将脚本复制然后修改参数即可，如果你的位置和我不一样，那么就需要将 **ExecStart** 和 **WorkingDirectory** 项中的路径换成你自己的。不确定可以使用命令查一下：
 
 ```bash
-which node # node 安装位置
-id -un # 查询用户
-id -gn # 查询组
+where is node # node 位置
+npm root -g # npm 全局安装位置
 ```
 
 在 `[Service]` 项中，你可以通过 `Environment` 直接添加 Waline 插件的环境变量
