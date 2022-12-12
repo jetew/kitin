@@ -52,7 +52,7 @@ mysql_secure_installation
 然后根据下面提示进行操作：
 
 ```bash
-root@Jett:~# mysql_secure_installation
+mysql_secure_installation
 
 Enter current password for root (enter for none): # 输入数据库密码，由于并未设置，所以直接回车
 
