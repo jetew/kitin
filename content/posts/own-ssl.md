@@ -43,7 +43,7 @@ domain.com_nginx.zip
 │   ├ domain.com_bundle.pem
 {{< /boxmd >}}
 
-将其解压出来，并全部命名为 `domian.com.xxx` ；然后将 `domian.com.key` 和 `domian.com.crt` 上传至 SSL 存放位置。
+将其解压出来，并全部命名为 `domian.com.xxx` ；然后将 `domain.com.scr` 、`domian.com.key` 和 `domian.com.crt` 上传至 SSL 存放位置。
 
 通过 Oneinistack 安装的位置位于 `/usr/local/nginx/conf/ssl`
 
