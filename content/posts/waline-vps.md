@@ -218,7 +218,7 @@ vim waline.service
 模板如下：
 
 ```service
-[unit]
+[Unit]
 Description=Waline
 
 [Service]
@@ -246,7 +246,7 @@ WantedBy=multi-user.target
 我的配置如下：
 
 ```service
-[unit]
+[Unit]
 Description=Waline
 
 [Service]
