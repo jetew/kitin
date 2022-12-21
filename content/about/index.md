@@ -17,15 +17,13 @@ date = "2022-02-20"
 
 ### 💻 关于博客
 
-- 博客由<a href="https://gohugo.io/" target="_blank"> Hugo </a>强力驱动
+- 博客由 <a href="https://gohugo.io" target="_blank">Hugo</a> 强力驱动
 
-- 主题选自<a href="https://github.com/zzossig/hugo-theme-zzo" target="_blank"> Zzo theme </a>
+- 主题选自 <a href="https://github.com/zzossig/hugo-theme-zzo" target="_blank">Zzo theme</a>
 
-- 使用<a href="https://markdown.com.cn/" target="_blank"> Markdown </a>进行写作
+- 使用 <a href="https://markdown.com.cn" target="_blank">Markdown</a> 进行写作
 
-- <p>备用地址：<a href="https://jettw.netlify.app/" target="_blank"> https://jettw.netlify.app/</a></p>
-
-- 站点备份于：<a href="https://github.com/" target="_blank"> Github</a> & <a href="https://vercel.com/" target="_blank">Vercel</a> & <a href="https://netlify.com/" target="_blank">Netlify</a>
+- 站点备份于： <a href="https://github.com" target="_blank">Github</a> & <a href="https://gh.kitin.cn" target="_blank">备用地址</a>
 
 ### 🧠 思考
 
