@@ -23,7 +23,7 @@ date = "2022-02-20"
 
 - 使用 <a href="https://markdown.com.cn" target="_blank">Markdown</a> 进行写作
 
-- 站点备份于： <a href="https://github.com" target="_blank">Github</a> & <a href="https://gh.kitin.cn" target="_blank">备用地址</a>
+- 站点备份于： <a href="https://github.com" target="_blank">Github</a> & <a href="https://blog.kitin.cn" target="_blank">备用地址</a>
 
 ### 🧠 思考
 
