@@ -181,7 +181,7 @@ node node_modules/@waline/vercel/vanilla.js
 
 到官方文档的 <a href="https://waline.js.org/guide/server/databases.html" target="_blank">多数据库服务支持</a> 下载我们对应数据库的数据文件，我这里用的 MariaDB(MySQL) 所以下载 <a href="https://github.com/walinejs/waline/blob/main/assets/waline.sql" target="_blank">waline.sql</a> 然后进行导入数据：
 
-> **注意**：将源代码直接复制然后自己进行编辑上传，不要直接使用 `wget` 进行下载
+> **注意**：将源代码直接复制然后自己进行编辑上传，不要直接使用 `wget` 进行下载。<a href="https://tool.kitin.cn/download/waline.sql" target="_blank">备用下载地址</a>
 
 ```bash
 mysql -uroot -p # 登陆数据库
