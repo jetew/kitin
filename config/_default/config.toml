@@ -35,11 +35,11 @@ googleAnalytics = ""
     startLevel = 2
 
 [outputs]
-  page = ["HTML"]
+  page = ["HTML", "RSS", "SearchIndex"]
   home = ["HTML", "RSS", "SearchIndex"]
   section = ["HTML", "RSS", "SearchIndex"]
-  taxonomyTerm = ["HTML"]
-  taxonomy = ["HTML"]
+  taxonomyTerm = ["HTML", "RSS", "SearchIndex"]
+  taxonomy = ["HTML", "RSS", "SearchIndex"]
 
 [outputFormats]
   [outputFormats.SearchIndex]
