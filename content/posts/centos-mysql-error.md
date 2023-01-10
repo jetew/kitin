@@ -13,7 +13,7 @@ tags:
 - mariadb
 - mysql
 categories:
-- 笔记
+- 学习
 image: /images/centos-mysql-error/0.png
 ---
 

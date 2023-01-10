@@ -13,7 +13,7 @@ weight: false
 tags:
 - cad
 categories:
-- 笔记
+- 学习
 image: /images/cad-setmld/0.png
 ---
 

@@ -12,7 +12,7 @@ tags:
 - zzo
 - blog
 categories:
-- 笔记
+- 学习
 image: /images/style-zzo/0.png
 ---
 

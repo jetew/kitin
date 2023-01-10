@@ -13,7 +13,7 @@ tags:
 - github
 - blog
 categories:
-- 笔记
+- 学习
 image: /images/how-to-write/0.png
 ---
 
