@@ -174,7 +174,6 @@ domain.com {
     }
     encode gzip
     reverse_proxy 127.0.0.1:8080
-    }
     file_server
     tls user@email.com
 }
@@ -211,7 +210,6 @@ location ~* /pan {
 ```caddyfile
 domain.com {
     reverse_proxy /pan/* 127.0.0.1:8080
-    }
 }
 ```
 
