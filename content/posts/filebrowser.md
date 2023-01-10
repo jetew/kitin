@@ -125,6 +125,9 @@ systemctl daemon-reload
 
 # 启动服务
 systemctl start filebrowser
+
+# 设置开机启动
+systemctl enable filebrowser
 ​
 # 停止服务
 systemctl stop filebrowser
