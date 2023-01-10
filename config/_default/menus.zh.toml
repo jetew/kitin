@@ -16,15 +16,23 @@
   url = "tags"
   weight = 3
 
-# [[main]]
-  # parent = "categories"
-  # name = "分享"
-  # url = "categories/分享"
+#[[main]]
+  #parent = "categories"
+  #name = "学习"
+  #url = "categories/学习"
+  #weight = 1
 
-# [[main]]
-  # parent = "categories"
-  # name = "记录"
-  # url = "categories/记录"
+#[[main]]
+  #parent = "categories"
+  #name = "笔记"
+  #url = "categories/笔记"
+  #weight = 2
+
+#[[main]]
+  #parent = "categories"
+  #name = "杂谈"
+  #url = "categories/杂谈"
+  #weight = 3
 
 # [[main]]
   # identifier = "gallery"
